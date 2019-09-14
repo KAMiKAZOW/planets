@@ -17,7 +17,7 @@ let random_name length =
   for i = 0 to length -1 do
     str.[i] <-  random_chr ()
   done;
-  str
+  Bytes.to_string str
 
 (*****************************************************************)
 (**  Live Values  ************************************************)
