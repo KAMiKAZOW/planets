@@ -88,10 +88,6 @@ collision: constants.cmx options.cmx state.cmx collision.cmx
 convert: convert.ml
 	$(OCAMLC) -o convert $(OCAMLFLAGS) $^
 
-
-common.ml: common.src.ml VERSION
-	sed s/__VERSION__/$(VERSION)/ < common.src.ml > common.ml
-
 planets.spec: planets.src.spec VERSION
 	sed s/__VERSION__/$(VERSION)/ < planets.src.spec > planets.spec
 
