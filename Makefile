@@ -15,7 +15,7 @@ INCLUDES=-I +labltk
 CAMLP4=-pp $(CAMLP4O)
 OCAMLDEP=ocamldep
 CAMLLIBS=unix.cma str.cma labltk.cma # libjpf.cma mylibs.cma
-OCAMLFLAGS=$(INCLUDES) $(CAMLP4) -g -custom $(CAMLLIBS) -cclib -lunix 
+OCAMLFLAGS=$(INCLUDES) $(CAMLP4) $(DEBUGFLAGS) $(CAMLLIBS) -cclib -lunix
 OCAMLOPTFLAGS=$(INCLUDES) $(CAMLP4) $(CAMLLIBS:.cma=.cmxa) -inline 50 -cclib -lunix
 
 ifdef PROFILING
@@ -23,8 +23,8 @@ ifdef PROFILING
   OCAMLOPTFLAGS = -p $(INCLUDES) $(CAMLLIBS:.cma=.cmxa) -inline 40 -cclib -lunix
 endif
 
-OBJS =  augSet.cmx augMap.cmx mTimer.cmx common.cmx lstrings.cmx options.cmx \
-	constants.cmx fqueue.cmx state.cmx saveState.cmx \
+OBJS =  mTimer.cmx common.cmx lstrings.cmx options.cmx \
+	constants.cmx state.cmx saveState.cmx \
 	rk4.cmx fast_physics.cmx \
 	collision.cmx physics.cmx help.cmx display.cmx
 
@@ -82,7 +82,7 @@ test: test.ml
 sqrt: sqrt.ml
 	$(OCAMLOPT) -o sqrt $(OCAMLOPTFLAGS) $^
 
-collision: constants.cmx options.cmx fqueue.cmx state.cmx collision.cmx
+collision: constants.cmx options.cmx state.cmx collision.cmx
 	$(OCAMLOPT) -o collision $(OCAMLOPTFLAGS) $^
 
 convert: convert.ml
