@@ -231,7 +231,7 @@ let init_optionbox () =
 
     Options.add_option obox
       (new Options.void_entry_display
-         ~text:"New random bodies:" ());
+         ~text:(Lstrings.get `random_bodies) ());
 
     Options.add_option_live obox diameter_multiplier
       (new Options.float_entry_option

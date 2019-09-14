@@ -68,6 +68,7 @@ let english word = match word with
   | `dismiss -> "Dismiss"
   | `options -> "Options"
   | `at_startup -> "Display this screen at startup?"
+  | `random_bodies -> "New random bodies:"
   | `prologue -> "Welcome to Planets!
 Planets is a simple orbital planetary simulator.  A short 
 introduction to planets can be found at:
@@ -82,8 +83,8 @@ distributed with this program.
 let danish word = match word with
   | `paused -> "Pause"
   | `tracing -> "Vis hale"
-  | `true_bounce -> "Ægte stød"
-  | `trace_length -> "Halelængde"
+  | `true_bounce -> "Ã†gte stÃ¸d"
+  | `trace_length -> "HalelÃ¦ngde"
   | `disp_period -> "Opdateringstid (ms)"
   | `g -> "G (Tyngdeacceleration)"
   | `grav_exp -> "G exp."
@@ -92,48 +93,48 @@ let danish word = match word with
   | `log_k_energy -> "Log k energi"
   | `log_p_energy -> "Log p energi"
   | `log_energy -> "Log energi"
-  | `add_planet -> "Tilføj planet"
+  | `add_planet -> "TilfÃ¸j planet"
   | `zoom_in -> "Zoom ind"
   | `zoom_out -> "Zoom ud"
   | `iter_display -> "Trin/opdatering"
   | `time_step -> "Tidsintervaller"
-  | `toggle_true_bounce -> "Ægte stød til/fra"
-  | `toggle_bounce -> "Stød til/fra"
-  | `center -> "Centrér"
+  | `toggle_true_bounce -> "Ã†gte stÃ¸d til/fra"
+  | `toggle_bounce -> "StÃ¸d til/fra"
+  | `center -> "CentrÃ©r"
   | `option_dialog -> "Vis dialogboksen indstillinger"
-  | `change_all_colors -> "Ændr alle farver"
+  | `change_all_colors -> "Ã†ndr alle farver"
   | `quit -> "Afslut"
   | `reset -> "Genstart med tomt univers"
   | `save -> "Gem univers"
-  | `load -> "Indlæs univers"
+  | `load -> "IndlÃ¦s univers"
   | `undo -> "Fortryd (oprettelsen af sidste planet)"
-  | `goback -> "Gå tilbage (til oprettelsen af sidste planet)"
-  | `toggle_pause -> "Pause/kør"
+  | `goback -> "GÃ¥ tilbage (til oprettelsen af sidste planet)"
+  | `toggle_pause -> "Pause/kÃ¸r"
   | `toggle_trace -> "Vis/skjul hale"
-  | `double_trace -> "Fordobl halens længde"
-  | `halve_trace -> "Halvér halens længde"
-  | `place_random_orbital -> "Opret planet i tilfældig bane"
-  | `place_random -> "Opret tilfældig planet"
+  | `double_trace -> "Fordobl halens lÃ¦ngde"
+  | `halve_trace -> "HalvÃ©r halens lÃ¦ngde"
+  | `place_random_orbital -> "Opret planet i tilfÃ¦ldig bane"
+  | `place_random -> "Opret tilfÃ¦ldig planet"
   | `cancel_com -> "Afbryd sporing af massemidtpunkt"
   | `pan_up -> "Op"
   | `pan_down -> "Ned"
   | `pan_left -> "Venstre"
-  | `pan_right -> "Højre"
-  | `display_help -> "Vis denne hjælpeskærm"
-  | `help -> "Hjælp" (* "Help" *)
+  | `pan_right -> "HÃ¸jre"
+  | `display_help -> "Vis denne hjÃ¦lpeskÃ¦rm"
+  | `help -> "HjÃ¦lp" (* "Help" *)
   | `dismiss -> "Anvend" (* "Dismiss" *)
   | `options -> "Indstillinger" (* "Options" *)
-  | `at_startup -> "Vis denne hjælpeskærm hver gang Planets starter?"
+  | `at_startup -> "Vis denne hjÃ¦lpeskÃ¦rm hver gang Planets starter?"
       (* "Display this screen at startup?" *)  
   | `prologue -> "Velkommen til Planets!
   
 Planets er en simpel planetbanesimulator.
-Du kan finde en kort (engelsksproget) introduktion til Planets på:
+Du kan finde en kort (engelsksproget) introduktion til Planets pÃ¥:
 http://planets.homedns.org/getting_started.html
 
-Det følgende er en liste over tastaturgenveje (de er vigtige i dette 
+Det fÃ¸lgende er en liste over tastaturgenveje (de er vigtige i dette 
 program!).
-Bemærk at du kan finde en oversigt over genvejstasterne (en.)
+BemÃ¦rk at du kan finde en oversigt over genvejstasterne (en.)
 i filen KEYBINDINGS.txt som fulgte med dette program.
 
 "
