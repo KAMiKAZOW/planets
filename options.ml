@@ -86,7 +86,7 @@ end
 (*********************************************************************)
 
 (** 'a is the data type, 'b is the widget type *)
-class virtual ['a,'b] option
+class virtual ['a,'b,'c] option
                 ?(name=random_name 10)
                 ~text
                 ~set:(set:'a->unit)
@@ -121,9 +121,9 @@ class virtual ['a,'b] option
 
 (*********************)
 
-class ['b] toggle_option ?name ~text ~set ~get () =
+class ['b,'c] toggle_option ?name ~text ~set ~get () =
 object (self)
-  inherit [bool,'b] option ?name ~text ~set ~get ()
+  inherit [bool,'b,'c] option ?name ~text ~set ~get ()
 
   method set_tk bool =
     Textvariable.set tk_var (if bool then "true" else "false")
@@ -148,9 +148,9 @@ end
 
 (*********************)
 
-class ['b] int_scale_option ?name ~min ~max ~text ~set ~get () =
+class ['b,'c] int_scale_option ?name ~min ~max ~text ~set ~get () =
 object (self)
-  inherit [int,'b] option ?name ~text ~set ~get ()
+  inherit [int,'b,'c] option ?name ~text ~set ~get ()
   val min = min
   val max = max
 
@@ -187,10 +187,10 @@ end
 
 (*******************************************************)
 
-class ['b] float_scale_option ?name ~min ~max ?(resolution=1.0)
+class ['b,'c] float_scale_option ?name ~min ~max ?(resolution=1.0)
   ~text ~set ~get () =
 object (self)
-  inherit [float, 'b] option ?name ~text ~set ~get ()
+  inherit [float, 'b, 'c] option ?name ~text ~set ~get ()
   val min = min
   val max = max
 
@@ -231,10 +231,10 @@ let string_of_float x =
   then string ^ "0"
   else string
 
-class ['b] float_entry_option ?name ?(mult=1.1)
+class ['b, 'c] float_entry_option ?name ?(mult=1.1)
   ~text ~set ~get () =
 object (self)
-  inherit [float, 'b] option ?name ~text ~set ~get ()
+  inherit [float, 'b, 'c] option ?name ~text ~set ~get ()
 
   val mutable entry = None
 
@@ -298,9 +298,9 @@ end
 
 (*******************************************************)
 
-class ['b] float_entry_display ?name ~text ~set ~get () =
+class ['b, 'c] float_entry_display ?name ~text ~set ~get () =
 object (self)
-  inherit [float, 'b] option ?name ~text ~set ~get ()
+  inherit [float, 'b, 'c] option ?name ~text ~set ~get ()
 
   val mutable display = None
 
@@ -332,9 +332,9 @@ end
 
 (*******************************************************)
 
-class ['b] int_entry_display ?name ~text ~set ~get () =
+class ['b, 'c] int_entry_display ?name ~text ~set ~get () =
 object (self)
-  inherit [int, 'b] option ?name ~text ~set ~get ()
+  inherit [int, 'b, 'c] option ?name ~text ~set ~get ()
 
   val mutable display = None
 
@@ -366,9 +366,9 @@ end
 
 (*******************************************************)
 
-class ['b] void_entry_display ?name ~text () =
+class ['b, 'c] void_entry_display ?name ~text () =
 object (_self)
-  inherit [unit, 'b] option ?name ~text
+  inherit [unit, 'b, 'c] option ?name ~text
     ~set:(fun _ -> ()) ~get:(fun () -> ())
     ()
 
